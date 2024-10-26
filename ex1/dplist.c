@@ -106,12 +106,10 @@ dplist_t *dpl_remove_at_index(dplist_t *list, int index) {
     if (list == NULL || list->head == NULL) return NULL;
 
     dplist_node_t *current = list->head;
-    int i = 0;
 
-    while(current != NULL && i<index)
+    if(index <= dpl_size(list))
     {
-        current = current->next;
-        i++;
+        current = dpl_get_reference_at_index(list, index);
     }
 
     if(current == NULL) return NULL;
@@ -167,6 +165,10 @@ dplist_node_t *dpl_get_reference_at_index(dplist_t *list, int index) {
 element_t dpl_get_element_at_index(dplist_t *list, int index) {
 
     if (list == NULL || list->head == NULL) return 0;
+
+    dplist_node_t *dummy = dpl_get_reference_at_index(list, index);
+
+    /* also possible as follows
     dplist_node_t *dummy = list->head;
     int i = 0;
 
@@ -174,9 +176,7 @@ element_t dpl_get_element_at_index(dplist_t *list, int index) {
     {
         dummy = dummy -> next;
         i++;
-    }
-
-
+    }*/
     //TODO: add your code here
     return dummy->element;
 
