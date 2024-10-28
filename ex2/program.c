@@ -6,31 +6,45 @@
  */
 
 #include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
 #include "dplist.h"
 
-void ck_assert_msg(bool result, char * msg){
-    if(!result) printf("%s\n", msg);
+void ck_assert_msg(bool result, char *msg) {
+    if (result) printf("%s\n", msg);
 }
-int main(void)
-{
-    dplist_t *numbers = NULL;
-    numbers = dpl_create();
 
-    ck_assert_msg(numbers != NULL, "numbers = NULL, List not created");
-    ck_assert_msg(dpl_size(numbers) == 0, "Numbers may not contain elements.");
+int main(void) {
+    dplist_t *strings = NULL;
+    strings = dpl_create();
 
-    dpl_insert_at_index(numbers, 'a', 0);
-    ck_assert_msg(dpl_size(numbers) == 1, "Numbers must contain 1 element.");
+    ck_assert_msg(strings != NULL, "strings = NULL, List not created");
+    ck_assert_msg(dpl_size(strings) == 0, "List must not contain elements.");
 
-    dpl_insert_at_index(numbers, '\e', -1);
-    ck_assert_msg(dpl_size(numbers) == 2, "Numbers must contain 2 elements.");
+    // Test inserting strings
+    dpl_insert_at_index(strings, "hello", 0); //inserts string "hello" at index 0
+    ck_assert_msg(dpl_size(strings) == 1, "List contains 1 element.");
+    ck_assert_msg(strcmp(dpl_get_element_at_index(strings, 0), "hello") == 0, "First element is 'hello'.");
+    printf("Element at index 0 is %s \n", (char*)dpl_get_element_at_index(strings, 0));
 
-    dpl_insert_at_index(numbers, 'b', 100);
-    ck_assert_msg(dpl_size(numbers) == 3, "Numbers must contain 3 elements.");
+    dpl_insert_at_index(strings, "world", -1);  // Insert at head
+    ck_assert_msg(dpl_size(strings) == 2, "List contains 2 elements.");
+    ck_assert_msg(strcmp(dpl_get_element_at_index(strings, 0), "world") == 0, "First element is 'world'.");
+    ck_assert_msg(strcmp(dpl_get_element_at_index(strings, 1), "hello") == 0, "Second element is 'hello'.");
 
-    dpl_remove_at_index(numbers, 2);
-    ck_assert_msg(dpl_size(numbers) == 2, "Numbers must contain 2 elements.");
-    dpl_free(&numbers);
+    dpl_insert_at_index(strings, "by emil", 100);  // Insert at tail
+    ck_assert_msg(dpl_size(strings) == 3, "List contains 3 elements.");
+    ck_assert_msg(strcmp(dpl_get_element_at_index(strings, 2), "by emil") == 0, "Third element is 'by emil'.");
+    printf("%s \n", dpl_get_element_at_index(strings, 2));
+    // Test removing elements
+    dpl_remove_at_index(strings, 1);  // Remove "hello"
+    ck_assert_msg(dpl_size(strings) == 2, "List contains 2 elements.");
+    ck_assert_msg(strcmp(dpl_get_element_at_index(strings, 0), "world") == 0, "First element is 'world'.");
+    ck_assert_msg(strcmp(dpl_get_element_at_index(strings, 1), "by emil") == 0, "Second element is 'by emil'.");
+
+    // Clean up
+    dpl_free(&strings);
+    ck_assert_msg(strings == NULL, "List must be NULL");
 
     return 0;
 }

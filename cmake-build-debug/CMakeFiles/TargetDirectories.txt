@@ -1,0 +1,3 @@
+C:/Users/emilh/OneDrive/Desktop/startcode2024/ex1/Linked-list-C/cmake-build-debug/CMakeFiles/Linked_list_C.dir
+C:/Users/emilh/OneDrive/Desktop/startcode2024/ex1/Linked-list-C/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/emilh/OneDrive/Desktop/startcode2024/ex1/Linked-list-C/cmake-build-debug/CMakeFiles/rebuild_cache.dir

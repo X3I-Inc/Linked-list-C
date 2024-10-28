@@ -1,0 +1,15 @@
+# ninja log v6
+14	115	7518072164639594	CMakeFiles/Linked_list_C.dir/ex2/program.c.obj	42c37a4dcc647847
+5	117	7518072164556151	CMakeFiles/Linked_list_C.dir/ex2/dplist2.c.obj	aee4ba01f83da489
+117	301	7518072165673273	Linked_list_C.exe	84218a85486763f9
+7	109	7518074484475035	CMakeFiles/Linked_list_C.dir/ex2/program.c.obj	42c37a4dcc647847
+110	239	7518074485509795	Linked_list_C.exe	84218a85486763f9
+31	107	7518075376734499	CMakeFiles/Linked_list_C.dir/ex2/program.c.obj	42c37a4dcc647847
+108	208	7518075377497824	Linked_list_C.exe	84218a85486763f9
+5	112	7518077830764453	CMakeFiles/Linked_list_C.dir/ex2/dplist2.c.obj	aee4ba01f83da489
+113	237	7518077831837565	Linked_list_C.exe	84218a85486763f9
+40	141	7518090438811438	CMakeFiles/Linked_list_C.dir/ex2/program.c.obj	42c37a4dcc647847
+31	154	7518090438723148	CMakeFiles/Linked_list_C.dir/ex2/dplist2.c.obj	aee4ba01f83da489
+154	312	7518090439945899	Linked_list_C.exe	84218a85486763f9
+25	102	7518091387255585	CMakeFiles/Linked_list_C.dir/ex2/program.c.obj	42c37a4dcc647847
+103	214	7518091388035171	Linked_list_C.exe	84218a85486763f9
